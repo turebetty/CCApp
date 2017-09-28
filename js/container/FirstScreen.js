@@ -46,8 +46,6 @@ export default class FirstScreen extends React.Component {
       this.next_start = data.next_start;
       this.setState({
         'object_list': this.state.object_list.concat(data.object_list),
-      },function(){
-        console.log(data);
       });
     });
   }
