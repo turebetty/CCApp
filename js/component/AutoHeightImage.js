@@ -14,8 +14,16 @@ const window = Dimensions.get('window');
 let styles = StyleSheet.create({
 
 });
-
-// 此组件现阶段接受数组。有需求可以接受一张图片的string, 在render处改造
+/**
+ * react native 加载图片时，一定要知道图片宽高，
+ * 本组件是用来根据图片宽度自动计算图片高度的。
+ * @class AutoHeightImage
+ * @extends {Component}
+ * this.props{
+ *   'data': 图片地址
+ *   'width': 图片宽度
+ * }
+ */
 export default class AutoHeightImage extends Component {
   constructor(props) {
     super(props);
