@@ -39,34 +39,16 @@ react-native run-andriod
 ```
 
 
-- athena_templates:   模版编译后文件
-- build:  打包后的js和css文件
-- config:  js配置文件及webpack文件
-    - path: 所有脚本的路径配置
-    - webpack.config.dev.js: webpack 开发环境
-    - webpack.config.prod.js: webpack 线上环境
-    - webpack.config.start.js: webpack 本地测试
-- src: 源文件
-    - css
+#### js文档结构
+    - img 小图片
     - js
-        - components： UI组件层
-        - constants
-            - actionTypes：action的type，只接受props
-            - apiServer：api的url
-            - broadCastTypes：广播
-            - urlTypes: url
-        - containers：UI容器层，接受redux的数据和方法
-        - redux: data层，不操作UI
-            - actions
-            - configureStore: 中间层
-            - reducers
-        - utils
-            - comm：业务相关组件
-            - lib：第三方组件库
-            - tools：公用组件
-    - index.js: reactjs总入口
-- public: 模版源文件
-- script: 打包、加戳等脚本文件
+        - components：UI组件层
+        - container:  页面
+          - RootRoutes: 路由
+        - utils:  公共组建
+    - index.ios.js:  ios  reactjs总入口
+    - index.android.js:  android  reactjs总入口
+    - package.json
 
 
 #### 启动所需环境
