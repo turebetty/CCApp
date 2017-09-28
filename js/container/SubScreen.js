@@ -75,9 +75,15 @@ export default class SubScreen extends React.Component {
       <View style={[styles.line]}></View>
     </View>
   }
+  /**
+   * 获取key
+   */
   _getTextKey(item,index){
     return `text${index.toString()}`;
   }
+  /**
+   * 获取key
+   */
   _getImageKey(item,index){
     return `img${index.toString()}`;
   }

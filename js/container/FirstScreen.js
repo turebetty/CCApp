@@ -34,6 +34,11 @@ export default class FirstScreen extends React.Component {
   componentDidMount () {
     this.fetchCategoryList();
   }
+
+
+  /**
+   * 获取商品列表
+   */
   fetchCategoryList(){
     Fetch({
       url: `https://buy.duitang.com/napi/buy/inventory/list/by_datasource/?sort_by=&sort_type=desc&limit=${this.limit}&start=${this.next_start}&filter_id=inv_%E6%8A%A4%E8%82%A4&timestamp=1506509445000`,
@@ -49,10 +54,18 @@ export default class FirstScreen extends React.Component {
       });
     });
   }
+
+  /**
+   * render一个商品的item
+   */
   _renderItem=({item})=>{
     const { navigate } = this.props.navigation;
     return <InventoryItem data={item} navigate = {navigate}/>
   }
+
+  /**
+   * 加载更多商品哦
+   */
   _renderMore=()=>{
     this.fetchCategoryList();
   }
@@ -68,12 +81,12 @@ export default class FirstScreen extends React.Component {
       <View>
         {this.state.object_list.length >0?<View style={[styles.pg_inventory_items]}>
           <FlatList
-            numColumns ={2}
+            numColumns ={2}   //两列
             columnWrapperStyle={{paddingLeft: 12}}
-            data={this.state.object_list}
-            renderItem={this._renderItem}
-            onEndReached={this._renderMore}
-            onEndReachedThreshold = {0.5}
+            data={this.state.object_list}  //整列的数据
+            renderItem={this._renderItem}  //renderitem
+            onEndReached={this._renderMore}  //拉到底部时加载更多
+            onEndReachedThreshold = {0.5}  //提前加载，列表的一半时就开始加载
           />
         </View>:null}
       </View>
